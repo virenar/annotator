@@ -16,11 +16,13 @@ The tool annotates the variants in the VCF and outputs a csv file containing fol
 
 # Installation
 
-### 1. Install Docker and Nextflow
+### 1. Install Docker, Nextflow, clone ANNOTATOR git repo
 
 Docker - https://docs.docker.com/get-docker/
 
 Nextflow - https://www.nextflow.io/docs/latest/getstarted.html
+
+ANNOTATOR - git clone https://github.com/virenar/annotator.git
 
 ### 2. Install annotation resources
 
@@ -29,6 +31,7 @@ Nextflow - https://www.nextflow.io/docs/latest/getstarted.html
 Annotation resource is ~15 gb of data that needs to be downloaded. Depending on your network speed, it may take up to 10-30 mins (at 30 MB/s it took me ~15 mins).  
 
 ```
+mkdir annotator/data
 cd annotator/data
 wget -r -nd ftp://ftp.ensembl.org/pub/release-104/variation/indexed_vep_cache/homo_sapiens_vep_104_GRCh37.tar.gz .
 tar xzf homo_sapiens_vep_104_GRCh37.tar.gz
@@ -37,7 +40,8 @@ rm homo_sapiens_vep_104_GRCh37.tar.gz
 
 You also need human fasta sequence. Run following to install fasta sequence. If tabix is not installed, you can install in ubuntu by `sudo apt install tabix`.
 ```
-cd data/fasta
+mkdir annotator/data/fasta
+cd annotator/data/fasta
 wget -r -nd ftp://ftp.ensembl.org/pub/release-75/fasta/homo_sapiens/dna/Homo_sapiens.GRCh37.75.dna.primary_assembly.fa.gz
 gzip -d Homo_sapiens.GRCh37.75.dna.primary_assembly.fa.gz
 bgzip Homo_sapiens.GRCh37.75.dna.primary_assembly.fa
