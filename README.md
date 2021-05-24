@@ -1,3 +1,5 @@
+# ANNOTATOR
+
 annotator is a tool that annotates vcf file to provide meaningful information to interpret variants. It is scalable and portable workflow. It uses nextflow and docker to orchestrate the variant annotation workflow. 
 
 The tool annotates the variants in the VCF and outputs a csv file containing following information for all the variants

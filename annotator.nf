@@ -71,7 +71,7 @@ process get_vep_info {
 }
 
 process get_coverage_info {
-        container "annotator_utils:0.1"
+        container "virenar/annotator_utils:0.1"
         publishDir "$params.outdir/", mode: 'copy', pattern: "annotated_*.csv", saveAs: {filename -> "${filename.split('/')[-1]}"}
         
         input:
